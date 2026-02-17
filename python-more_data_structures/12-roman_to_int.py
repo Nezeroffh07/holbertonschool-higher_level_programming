@@ -1,23 +1,18 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    """Converts a Roman numeral to an integer."""
     if not isinstance(roman_string, str) or roman_string is None:
         return 0
 
-    roman_dict = {
-        "I": 1, "V": 5, "X": 10, "L": 50,
-        "C": 100, "D": 500, "M": 1000
-    }
+    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    num = 0
+    last = 0
 
-    result = 0
-
-    for i in range(len(roman_string)):
-        # Əgər cari rəqəm əvvəlkindən böyükdürsə (məsələn IV - 5 > 1)
-        if i > 0 and roman_dict[roman_string[i]] > roman_dict[roman_string[i - 1]]:
-            # Cari rəqəmi gəlirik və əvvəl səhvən gəldiyimiz rəqəmi 
-            # 2 qat çıxırıq (bir dəfə ləğv etmək üçün, bir dəfə də çıxma əməliyyatı üçün)
-            result += roman_dict[roman_string[i]] - 2 * roman_dict[roman_string[i - 1]]
+    for i in roman_string:
+        val = roman[i]
+        if val > last:
+            num += val - 2 * last
         else:
-            result += roman_dict[roman_string[i]]
+            num += val
+        last = val
 
-    return result
+    return num
