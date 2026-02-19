@@ -15,6 +15,9 @@ Using ``add_integer``
     >>> add_integer(100.3, -2)
     98
 
+    >>> add_integer(10.5, 5.5)
+    15
+
     >>> add_integer(4, "School")
     Traceback (most recent call last):
     ...
@@ -29,6 +32,16 @@ Using ``add_integer``
     Traceback (most recent call last):
     ...
     TypeError: a must be an integer
+
+    >>> add_integer([1, 2], 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer(1, {"a": 1})
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
 
     >>> add_integer(float('inf'), 1)
     Traceback (most recent call last):
