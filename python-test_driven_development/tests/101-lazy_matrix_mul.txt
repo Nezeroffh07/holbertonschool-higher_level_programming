@@ -1,0 +1,38 @@
+The ``101-lazy_matrix_mul`` module
+==================================
+
+Using ``lazy_matrix_mul``
+-------------------------
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+Normal cases:
+    >>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+    [[ 7 10]
+     [15 22]]
+
+    >>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+    [[13 16]]
+
+Invalid types (Scalar instead of list):
+    >>> lazy_matrix_mul("Holberton", [[1, 2]])
+    Traceback (most recent call last):
+    ...
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+    >>> lazy_matrix_mul([[1, 2]], "Holberton")
+    Traceback (most recent call last):
+    ...
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+Wrong dimensions:
+    >>> lazy_matrix_mul([[1, 2]], [[1, 2], [3, 4], [5, 6]])
+    Traceback (most recent call last):
+    ...
+    ValueError: shapes (1,2) and (3,2) not aligned: 2 (dim 1) != 3 (dim 0)
+
+Not a rectangle:
+    >>> lazy_matrix_mul([[1, 2], [3]], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    ...
+    ValueError: setting an array element with a sequence.
