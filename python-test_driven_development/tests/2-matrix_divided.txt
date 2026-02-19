@@ -6,18 +6,16 @@ Using ``matrix_divided``
 
     >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-Normal cases:
     >>> matrix = [[1, 2, 3], [4, 5, 6]]
     >>> matrix_divided(matrix, 3)
     [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
-    >>> matrix  # original matrix shouldn't be mutated
+    >>> matrix
     [[1, 2, 3], [4, 5, 6]]
 
     >>> matrix_divided([[1.2, 2.4], [3.6, 4.8]], 2)
     [[0.6, 1.2], [1.8, 2.4]]
 
-Exceptions for division:
     >>> matrix_divided([[1, 2], [3, 4]], 0)
     Traceback (most recent call last):
     ...
@@ -28,13 +26,11 @@ Exceptions for division:
     ...
     TypeError: div must be a number
 
-Exceptions for matrix size:
     >>> matrix_divided([[1, 2, 3], [4, 5]], 2)
     Traceback (most recent call last):
     ...
     TypeError: Each row of the matrix must have the same size
 
-Exceptions for matrix type/format:
     >>> matrix_divided([1, 2, 3], 2)
     Traceback (most recent call last):
     ...
@@ -54,3 +50,16 @@ Exceptions for matrix type/format:
     Traceback (most recent call last):
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([[1, 2], [3, 4]], float('inf'))
+    [[0.0, 0.0], [0.0, 0.0]]
+
+    >>> matrix_divided([[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
