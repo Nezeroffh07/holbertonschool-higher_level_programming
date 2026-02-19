@@ -9,6 +9,9 @@ Using ``add_integer``
     >>> add_integer(1, 2)
     3
 
+    >>> add_integer(2)
+    100
+
     >>> add_integer(100, -2)
     98
 
@@ -17,6 +20,9 @@ Using ``add_integer``
 
     >>> add_integer(10.5, 5.5)
     15
+
+    >>> add_integer(10.5)
+    108
 
     >>> add_integer(4, "School")
     Traceback (most recent call last):
