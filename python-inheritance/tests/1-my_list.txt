@@ -1,4 +1,6 @@
 >>> MyList = __import__('1-my_list').MyList
+
+>>> # Adi sıralama testi
 >>> my_list = MyList()
 >>> my_list.append(1)
 >>> my_list.append(4)
@@ -11,3 +13,17 @@
 [1, 2, 3, 4, 5]
 >>> print(my_list)
 [1, 4, 2, 3, 5]
+
+>>> # Boş siyahı testi (Empty list)
+>>> my_list_empty = MyList()
+>>> my_list_empty.print_sorted()
+[]
+
+>>> # Mənfi ədədlərlə test (Negative numbers)
+>>> my_list_neg = MyList()
+>>> my_list_neg.append(-5)
+>>> my_list_neg.append(10)
+>>> my_list_neg.append(0)
+>>> my_list_neg.append(-1)
+>>> my_list_neg.print_sorted()
+[-5, -1, 0, 10]
