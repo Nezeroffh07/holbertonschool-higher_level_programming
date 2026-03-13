@@ -1,3 +1,2 @@
-erverindən hbtn_0c_0 adlı verilənlər bazasını silir
--- Əgər baza mövcud deyilsə, skript xəta verməməlidir
+-- Deletes the database hbtn_0c_0 in your MySQL server
 DROP DATABASE IF EXISTS hbtn_0c_0;
