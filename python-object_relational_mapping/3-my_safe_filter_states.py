@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """
-Script that takes in arguments and displays all values in the states table
-of hbtn_0e_0_usa where name matches the argument.
-Safe from MySQL injections!
+Lists all states from the database hbtn_0e_0_usa where name matches the argument.
+This script is safe from MySQL injections.
 """
-import sys
 import MySQLdb
+import sys
 
 if __name__ == "__main__":
     db = MySQLdb.connect(
@@ -16,10 +15,13 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
     cursor = db.cursor()
+    # SQL injection-dan qorunmaq üçün '%s' və parametr tuple-ı istifadə olunur
     query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
     cursor.execute(query, (sys.argv[4],))
+    
     rows = cursor.fetchall()
     for row in rows:
         print(row)
+        
     cursor.close()
     db.close()
