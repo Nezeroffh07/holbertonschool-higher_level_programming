@@ -1,1 +1,1 @@
- # Hoberlton School Higher Level Programming
+ # Holberton School Higher Level Programming
