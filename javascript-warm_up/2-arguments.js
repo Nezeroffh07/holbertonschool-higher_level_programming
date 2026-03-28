@@ -1,4 +1,3 @@
-cat > 2-arguments.js << 'EOF'
 #!/usr/bin/node
 const count = process.argv.length;
 
